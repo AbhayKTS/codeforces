@@ -149,6 +149,7 @@ public class D1_TreeOrientation {
             if (!matches) {
                 sb.append("No\n");
             } else {
+                edges.sort((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
                 sb.append("Yes\n");
                 for (int[] e : edges) {
                     sb.append(e[0] + 1).append(' ').append(e[1] + 1).append('\n');
