@@ -1,10 +1,8 @@
 import java.util.LinkedList
-
 fun main() {
     val br = System.`in`.bufferedReader()
     val sb = StringBuilder()
     val t = br.readLine().trim().toInt()
-
     repeat(t) {
         val (n, m) = br.readLine().trim().split(" ").map { it.toInt() }
         val adj = Array(n + 1) { mutableListOf<Int>() }
@@ -13,24 +11,16 @@ fun main() {
             adj[u].add(v)
             adj[v].add(u)
         }
-
-        // BFS bipartite check: for each component, 2-colour it.
-        // If bipartite: add max(|colour0|, |colour1|) to answer.
-        // If not bipartite: add 0.
         val colour = IntArray(n + 1) { -1 }
         var ans = 0
-
         for (start in 1..n) {
             if (colour[start] != -1) continue
-
             colour[start] = 0
             var c0 = 1
             var c1 = 0
             var bipartite = true
-
             val queue = LinkedList<Int>()
             queue.add(start)
-
             while (queue.isNotEmpty()) {
                 val cur = queue.poll()
                 for (nb in adj[cur]) {
@@ -43,10 +33,8 @@ fun main() {
                     }
                 }
             }
-
             if (bipartite) ans += maxOf(c0, c1)
         }
-
         sb.appendLine(ans)
     }
 
