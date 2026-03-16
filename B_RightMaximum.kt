@@ -3,7 +3,6 @@ fun main() {
     repeat(t) {
         val n = readLine()!!.trim().toInt()
         val a = readLine()!!.trim().split(" ").map { it.toInt() }
-
         var ops = 0
         var prefixMax = 0
         for (x in a) {
@@ -12,7 +11,6 @@ fun main() {
                 prefixMax = x
             }
         }
-
         println(ops)
     }
 }
