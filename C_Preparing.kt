@@ -9,15 +9,6 @@ fun main() {
 
         val known = BooleanArray(n + 1)
         for (x in q) known[x] = true
-
-        // Monocarp knows k questions out of n.
-        // List i excludes question a[i], so it contains n-1 questions.
-        // He passes list i if he knows all n-1 questions in that list.
-        //
-        // Case 1: k < n - 1 → he can never pass (knows too few questions)
-        // Case 2: k == n - 1 → he passes only if a[i] is the one question he doesn't know
-        // Case 3: k == n → he always passes (knows everything)
-
         if (k == n) {
             for (i in 0 until m) sb.append('1')
         } else if (k == n - 1) {
