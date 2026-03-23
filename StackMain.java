@@ -25,6 +25,10 @@ class Mystack{
         return res;
     }
     public int peek(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+            return -1;
+        }
         return arr[top];
     }
     public boolean isEmpty(){
