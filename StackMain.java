@@ -1,26 +1,27 @@
+import java.util.*;
 class Mystack{
-    private int arr[];
+    private ArrayList<Integer> arr;
     private int top;
     int capacity;
     public Mystack(int capacity){
         this.capacity=capacity;
-        arr=new int[capacity];
+        arr=new ArrayList<>(capacity);
         top=-1;
     }
     public void push(int item){
         if(top==capacity-1){
             System.out.println("Stack is full");
             return;
-        }   
+        }
         top++;
-        arr[top]=item;
+        arr.add(item);
     }
     public int pop(){
         if(isEmpty()){
             System.out.println("Stack is empty");
             return -1;
         }
-        int res=arr[top];
+        int res=arr.get(top);
         top--;
         return res;
     }
@@ -29,7 +30,7 @@ class Mystack{
             System.out.println("Stack is empty");
             return -1;
         }
-        return arr[top];
+        return arr.get(top);
     }
     public boolean isEmpty(){
         return top==-1;
